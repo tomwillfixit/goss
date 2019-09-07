@@ -11,3 +11,5 @@ RUN apk add --no-cache --virtual=goss-dependencies curl ca-certificates && \
     apk del goss-dependencies
 
 VOLUME /goss
+
+ENTRYPOINT goss
