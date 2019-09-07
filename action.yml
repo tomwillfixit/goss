@@ -1,7 +1,13 @@
 name: 'Container Action Template'
 description: 'GOSS Action'
 author: 'tomwillfixit'
-
+inputs: 
+  validate:
+    description: 'Validate GOSS File'
+    required: true
+  path:
+    description: 'Directory containing GOSS file'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
