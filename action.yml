@@ -2,6 +2,11 @@ name: 'Container Action Template'
 description: 'GOSS Action'
 author: 'tomwillfixit'
 
+inputs: 
+  command:
+    description: 'Command to be run by GOSS Container'
+    required: true
+    
 runs:
   using: 'docker'
   image: 'Dockerfile'
