@@ -1,7 +1,13 @@
-FROM alpine:3.10
+FROM alpine:3.4
+MAINTAINER tomwillfixit
 
-COPY LICENSE README.md /
+ENV GOSS_VER v0.3.6
+ENV PATH=/goss:$PATH
 
-COPY entrypoint.sh /entrypoint.sh
+# Install goss
+RUN apk add --no-cache --virtual=goss-dependencies curl ca-certificates && \
+    mkdir /goss && \
+    curl -fsSL https://goss.rocks/install | GOSS_DST=/goss sh && \
+    apk del goss-dependencies
 
-ENTRYPOINT ["/entrypoint.sh"]
+VOLUME /goss
